@@ -1,10 +1,11 @@
-pragma solidity ^0.5.1;
+pragma solidity ^0.4.24;
 
 contract dreidel {
     
     address owner; 
     address winHalf;
     address winAll;
+    uint spinResult;
    
     
     modifier IsOwner()  {
@@ -19,6 +20,18 @@ contract dreidel {
         
     }
     
+    function spin() external {
+      spinResult = result();
+
+    }
+    
+    function result() private view returns (uint) {
+    return uint8(uint256(keccak256(block.timestamp, block.difficulty))%3);
+
+    }
+    function getSpin() public view returns (uint) {
+        return spinResult;
+    }
     
     function Winhalf (address _winHalf) IsOwner public {
         winHalf = _winHalf;
