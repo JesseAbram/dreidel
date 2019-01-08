@@ -10,3 +10,5 @@ The trusted party calls the win half function if the spiner spins a hey, or clal
 
 The spinner then must withdraw the balance before the next spiners turn. 
 
+
+I added a pseudo random number generator, need to integrate that into tbe game so you can play drediel on the contract itself. 
