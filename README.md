@@ -1,14 +1,38 @@
 # dreidel
-I wanted to play dreidel on the blockchain at our Christmas party this should workish. 
 
+This is demo of dreidel on the blockchain.
 
-legit spent like 5 min on it no judgments. 
+## Contracts 
 
-Find a trusted party, everyone pays in a determined amount each time they spin.
+* There are two contracts an ERC20 token contract and the dridel contract
 
-The trusted party calls the win half function if the spiner spins a hey, or clals the win all function if a spiner spins a gimal
+## Functions
 
-The spinner then must withdraw the balance before the next spiners turn. 
+* ERC20 standard functions
+    * mint function with an only owner modifier
 
+* Dreidel
+    * a constructor that requires the ERC20 token
+    * ```result()``` internal function for generating a pseudo random number, mimicing a dridiel spin. Result can be a 0 1 2 or 3 
+    * ```play()``` 
+        * this is the game, get the dridel spin 
+        * requires an anti
+        * 0 = gimal win whole pot (will transfer all the balance )
+        * 1 = Hey,half the pot will transfer half the balance of the pot
+        * 2 = shin, repay your anti
+        * 3 == noon no payout
 
-I added a pseudo random number generator, need to integrate that into tbe game so you can play drediel on the contract itself. 
+## Flow
+
+* User must have the tokens first then aprove the contract to spend on its behalf,
+
+* Then user just needs to call spin
+    
+
+## Run Locally
+
+* ``` yarn install```
+
+* ```yarn run ganache-cli```
+
+* ``` yarn run truffle test ```
